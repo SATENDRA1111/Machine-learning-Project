@@ -1,6 +1,6 @@
 '''module provides access to system-related functionalities.'''
 import sys
-import logging
+from src.logger import logging
 
 def error_message_detail(error,error_detail:sys):    ## error detail present inside sys
     _,_,exc_tb=error_detail.exc_info() ## this given in witch line of code error occured
@@ -20,3 +20,10 @@ class CustomException(Exception):  ## custom exception class
 def __str__(self):
     return self.error_message  ## calling the exception class
 
+
+if __name__=="__main__":
+    try:
+        a=1/0
+    except Exception as e:
+        logging.info("divide by zero")
+        raise CustomException(e,sys)
