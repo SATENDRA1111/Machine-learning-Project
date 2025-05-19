@@ -8,6 +8,9 @@ from src.components.data_transformation import DataTransformationConfig
 from sklearn.model_selection import train_test_split
 
 from dataclasses import dataclass
+from src.components.model_trainer import ModelTrainerConfig
+from src.components.model_trainer import ModelTrainer
+
 
 
 '''dataclass, Python automatically generates the constructor (__init__ method) for you, 
@@ -64,7 +67,10 @@ if __name__=="__main__":
     train_data,test_data=obj.initiate_data_ingestion()
     
     data_transformation=DataTraformation()
-    data_transformation.initiate_data_transformation(train_data,test_data)
+    train_arr,test_arr,_=data_transformation.initiate_data_transformation(train_data,test_data)
+    
+    modelTrainer=ModelTrainer()
+    print(modelTrainer.initiate_model_trainer(train_arr,test_arr)) ## print r2score
     
             
 
