@@ -45,12 +45,43 @@ class ModelTrainer:
                 "Gradient Boosting": GradientBoostingRegressor(),
                 "Linear Regression": LinearRegression(),
                 "XGBRegressor": XGBRegressor(),
-                "CatBoosting Regressor": CatBoostRegressor(verbose=False),
+                
                 "AdaBoost Regressor": AdaBoostRegressor(),
             }
             
+            params={
+                "Decision Tree":{
+                    'criterion':['squared_error','friedman_mse','absolute_error','poisson'],
+                    # 'splitter':['best','random'],
+                    # 'max_features':['sqrt','log2'],
+                },
+                "Random Forset":{
+                    # 'criterion':['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],
+                 
+                    # 'max_features':['sqrt','log2',None],
+                    'n_estimators': [8,16,32,64,128,256]
+                },
+                "Gradient Boosting":{
+                    'learning_rate':[.1,.01,.05,.001],
+                    'subsample':[0.6,0.7,0.75,0.8,0.85,0.9],
+                    'n_estimators':[8,16,32,64,128,256],
+                    # "loss":["squared_error"],
+                    # 'min_sample_split':[3,5,8,11]
+                },
+                "Linear Regression":{},
+                "XGBRegressor":{
+                    'learning_rate':[.1,.01,.05,.001],
+                    'n_estimators':[30, 50, 100],
+                    'max_depth':[6,8,10]
+                },
+                "AdaBoost Regressor":{
+                    'learning_rate':[.1,.01,.05,.001], 
+                    'n_estimators':[8,16,32,64,128,256]
+                }
+            }
+            
             model_report:dict=evaluate_model(X_train=X_train,y_train=y_train,X_test=X_test,y_test=y_test,
-                                             models=models)
+                                             models=models,param=params)
             # print("model report",model_report)
             
             ## To get best model score from dict
