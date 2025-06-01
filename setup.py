@@ -7,7 +7,7 @@ def get_requirement(filename:str)->list[str]:
 
     '''this function will return list of requiremnts'''
     
-    filename=r"C:\Udemy\Ml Project\requirements.txt"
+    filename=r"requirements.txt"
     with open(filename) as file_obj:
         requirements=file_obj.readlines()  ## when excute line by line it appened \n end of the line
         requirements=[req.replace('\n','') for req in requirements]
