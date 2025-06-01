@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Student Math Performance Predictor</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(90deg, #ff9966, #ff5e62, #4facfe, #00f2fe);
+            background-size: 400% 400%;
+            color: #fff;
+            font-family: "Poppins", sans-serif;
+            text-align: center;
+            padding-top: 50px;
+            animation: backgroundAnimation 10s infinite alternate ease-in-out;
+        }
+        @keyframes backgroundAnimation {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        .container {
+            max-width: 700px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+            margin: auto;
+        }
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            color: #f1f1f1;
+            margin-bottom: 30px;
+        }
+        .btn-primary {
+            background: #ff7eb3;
+            border: none;
+            font-size: 20px;
+            padding: 12px;
+            width: 100%;
+            border-radius: 8px;
+            transition: 0.3s ease-in-out;
+        }
+        .btn-primary:hover {
+            background: #ff3c81;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🚀 Predict Your Math Performance!</h1>
+        <p>
+            Ever wondered how your reading and writing skills influence your math scores? 
+            Our AI-powered predictor helps students gain valuable insights into their academic progress. 
+        </p>
+        <p>
+            Simply enter your details, and our model will forecast your potential math score! 
+            Let's take the guesswork out of learning and make education smarter. 🌟
+        </p>
+        <a href="{{ url_for('predicted_point') }}" class="btn btn-primary">🔎 Get Your Prediction</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
